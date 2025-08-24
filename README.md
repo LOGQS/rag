@@ -8,21 +8,20 @@ A lightning-fast, intelligent document indexing and retrieval system that turns 
 - **🧠 Smart Chunking**: Code-aware parsing that understands 40+ programming languages
 - **⚡ Incremental Updates**: Only processes changed files using SHA-256 hashing
 - **🎯 Precise Retrieval**: Context-aware search with line number precision
-- **🖥️ Dual Interface**: Both GUI and CLI for different workflows
 - **💾 Persistent Storage**: ChromaDB vector store with automatic persistence
 
 ## 🏗️ Architecture
 
 ```
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   File Scanner  │───▶│  Smart Chunker  │───▶│  Vector Store   │
-│   (Parallel)    │    │  (Code/Text)    │    │   (ChromaDB)    │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
-                                                        │
-┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│  Search Results │◀───│   Retriever     │◀───│  Query Engine   │
-│  (w/ Context)   │    │  (Similarity)   │    │  (Embeddings)   │
-└─────────────────┘    └─────────────────┘    └─────────────────┘
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   File Scanner  │───▶│  Smart Chunker   │───▶│  Vector Store   │
+│   (Parallel)    │     │  (Code/Text)    │     │   (ChromaDB)    │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+                                                         │
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  Search Results │◀───│   Retriever      │◀───│  Query Engine   │
+│  (w/ Context)   │     │  (Similarity)   │     │  (Embeddings)   │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
 ```
 
 ## 🚀 Quick Start
@@ -33,16 +32,8 @@ pip install -r requirements.txt
 ```
 
 ### 2. Build Your Index
-**GUI Mode:**
 ```bash
 python index.py
-```
-Click "Select Files" → Choose your documents → "Build Index"
-
-**CLI Mode:**
-```python
-from rag import build_index
-build_index(["path/to/your/code", "path/to/docs"])
 ```
 
 ### 3. Search Your Knowledge Base
@@ -67,8 +58,6 @@ Stay tuned for the evolution! 🚀
 
 ## 📊 Performance
 
-- **Indexing Speed**: ~1000 files/minute (typical codebase)
-- **Search Latency**: <200ms for most queries
 - **Memory Usage**: Efficient chunking keeps RAM usage low
 - **Storage**: Compressed vector embeddings
 
