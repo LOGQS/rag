@@ -41,7 +41,10 @@ class IndexBuilderApp:
     def select_files(self):
         files = filedialog.askopenfilenames(
             title="Select files to index",
-            filetypes=(("All files", "*.*"))
+            filetypes=[
+                ("All files", "*.*"),
+                ("Text files", "*.txt")
+            ]
         )
         if files:
             self.file_paths.update(files)
